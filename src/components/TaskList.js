@@ -111,6 +111,7 @@ const TaskList = () => {
         <div>
           <button
             className="add-btn"
+            data-testid="add-btn"
             onClick={() => {
               navigate("/add");
             }}
@@ -121,6 +122,7 @@ const TaskList = () => {
         <div>
           <p>Sort</p>
           <select
+            data-testid="sort-options"
             value={sortMethod}
             onChange={(e) => {
               setSortMethod(e.target.value);
@@ -155,15 +157,17 @@ const TaskList = () => {
       <div className="page-buttons">
         <button
           disabled={page > 1 ? "" : "disabled"}
+          data-testid="prev-btn"
           className="prev-btn"
           onClick={() => setPage(page - 1)}
         >
           <ArrowLeft />
           Prev
         </button>
-        <p>{page}</p>
+        <p data-testid="current-page">{page}</p>
         <button
           disabled={page < totalPages ? "" : "disabled"}
+          data-testid="next-btn"
           className="next-btn"
           onClick={() => setPage(page + 1)}
         >

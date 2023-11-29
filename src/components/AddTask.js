@@ -12,8 +12,9 @@ const AddTask = () => {
 
   return (
     <div className="add-task">
-      <h1>Add Task</h1>
+      <h1 data-testid="heading">Add Task</h1>
       <form
+        data-testid="form"
         onSubmit={(e) => {
           e.preventDefault();
           const item = {
@@ -47,7 +48,9 @@ const AddTask = () => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <button className="add-task-btn">Add Task</button>
+        <button data-testid="add-task-btn" className="add-task-btn">
+          Add Task
+        </button>
       </form>
     </div>
   );

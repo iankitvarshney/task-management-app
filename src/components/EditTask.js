@@ -8,9 +8,9 @@ const EditTask = () => {
   const items = getLocalStorageData();
   const index = getIndex(id);
 
-  const [title, setTitle] = useState(items[index].title);
-  const [description, setDescription] = useState(items[index].description);
-  const [priority, setPriority] = useState(items[index].priority);
+  const [title, setTitle] = useState(items[index]?.title);
+  const [description, setDescription] = useState(items[index]?.description);
+  const [priority, setPriority] = useState(items[index]?.priority);
 
   function getIndex(id) {
     for (const index in items) {
@@ -40,8 +40,9 @@ const EditTask = () => {
 
   return (
     <div className="edit-task">
-      <h1>Edit Task</h1>
+      <h1 data-testid="heading">Edit Task</h1>
       <form
+        data-testid="form"
         onSubmit={(e) => {
           e.preventDefault();
         }}
@@ -66,7 +67,11 @@ const EditTask = () => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <button className="edit-task-btn" onClick={handleEdit}>
+        <button
+          data-testid="edit-task-btn"
+          className="edit-task-btn"
+          onClick={handleEdit}
+        >
           Edit Task
         </button>
       </form>
