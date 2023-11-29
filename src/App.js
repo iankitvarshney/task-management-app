@@ -8,7 +8,7 @@ import EditTask from "./components/EditTask";
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <Outlet />
     </div>
   );

@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  cursor: pointer;
+}
+
+.app {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(255, 94, 94, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.body {
+  max-width: 1000px;
+  width: 50%;
+}
+
+.body h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.task-list {
+  background-color: #fff;
+  border-radius: 1.2rem;
+  padding: 2rem 1rem;
+}
+
+.task-list .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-inline: 1.6rem;
+}
+
+.task-list .actions .add-btn {
+  background-color: #fcb045;
+  border: none;
+  border-radius: 4rem;
+  padding: 1.4rem 1.4rem 1rem;
+}
+
+.task-list .actions div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+}
+
+.task-list .actions div:last-child select {
+  background-color: transparent;
+  border-radius: 0.4rem;
+}
+
+.task-list .task-container {
+  padding: 1rem;
+}
+
+.task {
+  background-color: #ffafaf;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.task .task-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.task .task-head h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-left: 0.4rem;
+}
+
+.task .task-head div:first-child {
+  display: flex;
+  align-items: flex-start;
+  width: 85%;
+}
+
+.task .task-head div:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 15%;
+}
+
+.task .task-head button {
+  background-color: transparent;
+  border: none;
+  padding-top: 0.4rem;
+  margin: 0 0.4rem;
+  cursor: pointer;
+}
+
+.task .task-body {
+  font-size: 1.6rem;
+  padding-left: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.task .task-stats {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.4rem;
+}
+
+.task-list .page-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 1.4rem;
+}
+
+.task-list .page-buttons button {
+  background-color: #fcb045;
+  border: none;
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 0.4rem 1rem;
+}
+
+.task-list .page-buttons .prev-btn {
+  padding-right: 1.8rem;
+}
+
+.task-list .page-buttons .next-btn {
+  padding-left: 1.8rem;
+}
+
+.add-task {
+  background-color: #fff;
+  border-radius: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.add-task form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-task input,
+.add-task textarea,
+.add-task select {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.add-task .add-task-btn {
+  background-color: #fcb045;
+  border: none;
+  border-radius: 0.4rem;
+  align-self: center;
+  font-size: 1.4rem;
+  padding: 0.8rem 2.4rem;
+  margin: 2rem 0;
+}
+
+.edit-task {
+  background-color: #fff;
+  border-radius: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.edit-task form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-task input,
+.edit-task textarea,
+.edit-task select {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.edit-task .edit-task-btn {
+  background-color: #fcb045;
+  border: none;
+  border-radius: 0.4rem;
+  align-self: center;
+  font-size: 1.4rem;
+  padding: 0.8rem 2.4rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 1600px) {
+  .body {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .body {
+    width: 70%;
+  }
+}
+
+@media (max-width: 800px) {
+  .body {
+    width: 90%;
+  }
+}

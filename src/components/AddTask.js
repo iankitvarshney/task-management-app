@@ -11,8 +11,8 @@ const AddTask = () => {
   const items = getLocalStorageData();
 
   return (
-    <div>
-      <p>AddTask</p>
+    <div className="add-task">
+      <h1>Add Task</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -29,13 +29,13 @@ const AddTask = () => {
       >
         <input
           type="text"
-          placeholder="title"
+          placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
         <textarea
-          placeholder="description"
+          placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
@@ -47,7 +47,7 @@ const AddTask = () => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <button>Add Task</button>
+        <button className="add-task-btn">Add Task</button>
       </form>
     </div>
   );

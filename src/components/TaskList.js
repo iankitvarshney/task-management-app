@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLocalStorageData } from "../constants";
 import Task from "./Task";
+import { AddIcon, ArrowLeft, ArrowRight } from "../icons";
 
 const TaskList = () => {
   const [page, setPage] = useState(1);
@@ -34,7 +35,7 @@ const TaskList = () => {
   }
 
   function handleDelete(id) {
-    const items = tasks.filter((task) => task.title != id);
+    const items = tasks.filter((task) => task.id != id);
     setTasks(items);
     localStorage.setItem("tasks", JSON.stringify(items));
   }
@@ -49,7 +50,7 @@ const TaskList = () => {
 
   function handleStatus(id) {
     const items = tasks;
-    const index = getIndex(id);
+    const index = parseInt(getIndex(id));
     const prevItems = items.slice(0, index);
     const nextItems = items.slice(index + 1);
     const prevStatus = items[index].status;
@@ -105,49 +106,71 @@ const TaskList = () => {
   }
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          navigate("/add");
-        }}
-      >
-        Add Task
-      </button>
-      <p>TaskList</p>
+    <div className="task-list">
+      <div className="actions">
+        <div>
+          <button
+            className="add-btn"
+            onClick={() => {
+              navigate("/add");
+            }}
+          >
+            <AddIcon />
+          </button>
+        </div>
+        <div>
+          <p>Sort</p>
+          <select
+            value={sortMethod}
+            onChange={(e) => {
+              setSortMethod(e.target.value);
+              handleSortMethod(e.target.value);
+            }}
+          >
+            <option value="none">None</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="incomplete">Incomplete</option>
+            <option value="complete">Complete</option>
+          </select>
+        </div>
+      </div>
 
-      {page > 1 && <button onClick={() => setPage(page - 1)}>Previous</button>}
-      {page < totalPages && (
-        <button onClick={() => setPage(page + 1)}>Next</button>
-      )}
-      <p>Page - {page}</p>
+      <div className="task-container">
+        {perPageTasks.map((task, index) => (
+          <Task
+            key={task.id + index}
+            id={task.id}
+            title={task.title}
+            description={task.description}
+            status={task.status}
+            priority={task.priority}
+            handleDelete={(id) => handleDelete(id)}
+            handleStatus={(id) => handleStatus(id)}
+          />
+        ))}
+      </div>
 
-      <select
-        value={sortMethod}
-        onChange={(e) => {
-          setSortMethod(e.target.value);
-          handleSortMethod(e.target.value);
-        }}
-      >
-        <option value="none">None</option>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-        <option value="incomplete">Incomplete</option>
-        <option value="complete">Complete</option>
-      </select>
-
-      {perPageTasks.map((task, index) => (
-        <Task
-          key={task.id + index}
-          id={task.id}
-          title={task.title}
-          description={task.description}
-          status={task.status}
-          priority={task.priority}
-          handleDelete={(id) => handleDelete(id)}
-          handleStatus={(id) => handleStatus(id)}
-        />
-      ))}
+      <div className="page-buttons">
+        <button
+          disabled={page > 1 ? "" : "disabled"}
+          className="prev-btn"
+          onClick={() => setPage(page - 1)}
+        >
+          <ArrowLeft />
+          Prev
+        </button>
+        <p>{page}</p>
+        <button
+          disabled={page < totalPages ? "" : "disabled"}
+          className="next-btn"
+          onClick={() => setPage(page + 1)}
+        >
+          Next
+          <ArrowRight />
+        </button>
+      </div>
     </div>
   );
 };

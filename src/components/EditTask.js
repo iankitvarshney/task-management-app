@@ -14,18 +14,19 @@ const EditTask = () => {
 
   function getIndex(id) {
     for (const index in items) {
-      if (items[index].title == id) {
+      if (items[index].id == id) {
         return index;
       }
     }
   }
 
   function handleEdit() {
-    const index = getIndex(id);
+    const index = parseInt(getIndex(id));
     const prevItems = items.slice(0, index);
     const nextItems = items.slice(index + 1);
     const item = {
       ...items[index],
+      id: title,
       title: title,
       description: description,
       priority: priority,
@@ -38,8 +39,8 @@ const EditTask = () => {
   }
 
   return (
-    <div>
-      <p>AddTask</p>
+    <div className="edit-task">
+      <h1>Edit Task</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -65,7 +66,9 @@ const EditTask = () => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <button onClick={handleEdit}>Edit Task</button>
+        <button className="edit-task-btn" onClick={handleEdit}>
+          Edit Task
+        </button>
       </form>
     </div>
   );
