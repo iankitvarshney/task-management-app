@@ -60,3 +60,19 @@ Unit tests are written for critical components (TaskList, AddTask, EditTask) usi
 4. Open the application in your browser at `http://localhost:1234`.
 
 Feel free to explore, add tasks, edit them, and manage your to-do list seamlessly with this Task Management Application!
+
+## Project Screenshots
+
+![Task List Page](src/images/task-list-page.png)
+
+![Add Task Page](src/images/add-task-page.png)
+
+![Edit Task Page](src/images/edit-task-page.png)
+
+![Task List Page showing completed tasks](src/images/task-list-page-showing-completed-tasks.png)
+
+![Task List Page showing sort options](src/images/task-list-page-showing-sort-options.png)
+
+![Add Task Page showing title required](src/images/add-task-page-showing-title-required.png)
+
+![Task List Page showing next page](src/images/task-list-page-showing-next-page.png)
